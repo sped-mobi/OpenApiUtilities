@@ -1,0 +1,2263 @@
+﻿{
+    "config": [
+        {
+            "name": "site_read",
+            "properties": []
+        },
+        {
+            "name": "package_list",
+            "properties": [
+                {
+                    "name": "limit",
+                    "type": "int"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "current_package_list_with_resources",
+            "properties": [
+                {
+                    "name": "limit",
+                    "type": "int"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "page",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "revision_list",
+            "properties": [
+                {
+                    "name": "since_id",
+                    "type": "string"
+                },
+                {
+                    "name": "since_time",
+                    "type": "string"
+                },
+                {
+                    "name": "sort",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "package_revision_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "member_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "object_type",
+                    "type": "string"
+                },
+                {
+                    "name": "capacity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_list",
+            "properties": [
+                {
+                    "name": "order_by",
+                    "type": "string"
+                },
+                {
+                    "name": "sort",
+                    "type": "string"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "groups",
+                    "type": "strings"
+                },
+                {
+                    "name": "all_fields",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_dataset_count",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_extras",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_tags",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_groups",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_users",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "organization_list",
+            "properties": [
+                {
+                    "name": "order_by",
+                    "type": "string"
+                },
+                {
+                    "name": "sort",
+                    "type": "string"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "organizations",
+                    "type": "strings"
+                },
+                {
+                    "name": "all_fields",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_dataset_count",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_extras",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_tags",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_groups",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_users",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "group_list_authz",
+            "properties": [
+                {
+                    "name": "available_only",
+                    "type": "bool"
+                },
+                {
+                    "name": "am_member",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "organization_list_for_user",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "permission",
+                    "type": "string"
+                },
+                {
+                    "name": "include_dataset_count",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "group_revision_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "organization_revision_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "license_list",
+            "properties": []
+        },
+        {
+            "name": "tag_list",
+            "properties": [
+                {
+                    "name": "query",
+                    "type": "string"
+                },
+                {
+                    "name": "vocabulary_id",
+                    "type": "string"
+                },
+                {
+                    "name": "all_fields",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "user_list",
+            "properties": [
+                {
+                    "name": "q",
+                    "type": "string"
+                },
+                {
+                    "name": "order_by",
+                    "type": "string"
+                },
+                {
+                    "name": "all_fields",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "package_relationships_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "id2",
+                    "type": "string"
+                },
+                {
+                    "name": "rel",
+                    "type": "package_relationship_create()"
+                }
+            ]
+        },
+        {
+            "name": "package_show",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "use_default_schema",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_tracking",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "resource_show",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "include_tracking",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "resource_view_show",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource_view_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "revision_show",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_show",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "include_datasets",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_dataset_count",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_extras",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_users",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_groups",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_tags",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_followers",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "organization_show",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "include_datasets",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_dataset_count",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_extras",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_users",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_groups",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_tags",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_followers",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "group_package_show",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "tag_show",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "vocabulary_id",
+                    "type": "string"
+                },
+                {
+                    "name": "include_datasets",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "user_show",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "user_obj",
+                    "type": "user"
+                },
+                {
+                    "name": "include_datasets",
+                    "type": "dictionary"
+                },
+                {
+                    "name": "include_num_followers",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_password_hash",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "package_autocomplete",
+            "properties": [
+                {
+                    "name": "q",
+                    "type": "string"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "format_autocomplete",
+            "properties": [
+                {
+                    "name": "q",
+                    "type": "string"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "user_autocomplete",
+            "properties": [
+                {
+                    "name": "q",
+                    "type": "string"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "group_autocomplete",
+            "properties": [
+                {
+                    "name": "q",
+                    "type": "string"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "organization_autocomplete",
+            "properties": [
+                {
+                    "name": "q",
+                    "type": "string"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "package_search",
+            "properties": [
+                {
+                    "name": "Solr",
+                    "type": "string"
+                },
+                {
+                    "name": "Parameters:",
+                    "type": "string"
+                },
+                {
+                    "name": "q",
+                    "type": "strings"
+                },
+                {
+                    "name": "fq",
+                    "type": "string"
+                },
+                {
+                    "name": "fq_list",
+                    "type": "int"
+                },
+                {
+                    "name": "sort",
+                    "type": "int"
+                },
+                {
+                    "name": "rows",
+                    "type": "string"
+                },
+                {
+                    "name": "start",
+                    "type": "int"
+                },
+                {
+                    "name": "facet",
+                    "type": "int"
+                },
+                {
+                    "name": "facet.mincount",
+                    "type": "strings"
+                },
+                {
+                    "name": "facet.limit",
+                    "type": "bool"
+                },
+                {
+                    "name": "facet.field",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_drafts",
+                    "type": "bool"
+                },
+                {
+                    "name": "include_private",
+                    "type": "int"
+                },
+                {
+                    "name": "use_default_schema",
+                    "type": "dictized"
+                },
+                {
+                    "name": "Examples:",
+                    "type": "datasets."
+                },
+                {
+                    "name": "Results:",
+                    "type": "DEPRECATED"
+                },
+                {
+                    "name": "count",
+                    "type": "dict"
+                },
+                {
+                    "name": "results",
+                    "type": "nested"
+                },
+                {
+                    "name": "facets",
+                    "type": "dicts."
+                },
+                {
+                    "name": "search_facets",
+                    "type": null
+                },
+                {
+                    "name": "Limitations:",
+                    "type": null
+                }
+            ]
+        },
+        {
+            "name": "resource_search",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "tag_search",
+            "properties": [
+                {
+                    "name": "query",
+                    "type": "{field}:{term1}"
+                },
+                {
+                    "name": "fields",
+                    "type": "fields"
+                },
+                {
+                    "name": "order_by",
+                    "type": "to"
+                },
+                {
+                    "name": "offset",
+                    "type": "search"
+                },
+                {
+                    "name": "limit",
+                    "type": "terms."
+                }
+            ]
+        },
+        {
+            "name": "tag_autocomplete",
+            "properties": [
+                {
+                    "name": "query",
+                    "type": "string"
+                },
+                {
+                    "name": "vocabulary_id",
+                    "type": "string"
+                },
+                {
+                    "name": "fields",
+                    "type": "dictionary"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "task_status_show",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "term_translation_show",
+            "properties": [
+                {
+                    "name": "query",
+                    "type": "string"
+                },
+                {
+                    "name": "vocabulary_id",
+                    "type": "string"
+                },
+                {
+                    "name": "fields",
+                    "type": "dictionary"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "get_site_user",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "entity_id",
+                    "type": "string"
+                },
+                {
+                    "name": "task_type",
+                    "type": "string"
+                },
+                {
+                    "name": "key",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "status_show",
+            "properties": [
+                {
+                    "name": "terms",
+                    "type": "strings"
+                },
+                {
+                    "name": "lang_codes",
+                    "type": "language"
+                }
+            ]
+        },
+        {
+            "name": "vocabulary_list",
+            "properties": [
+                {
+                    "name": "defer_commit",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "vocabulary_show",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "user_activity_list",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "package_activity_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_activity_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "organization_activity_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "recently_changed_packages_activity_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "activity_detail_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "user_activity_list_html",
+            "properties": [
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "package_activity_list_html",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_activity_list_html",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "organization_activity_list_html",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "recently_changed_packages_activity_list_html",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "user_follower_count",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "dataset_follower_count",
+            "properties": [
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "group_follower_count",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "organization_follower_count",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "user_follower_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dataset_follower_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_follower_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "organization_follower_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "am_following_user",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "am_following_dataset",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "am_following_group",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "followee_count",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "user_followee_count",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dataset_followee_count",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_followee_count",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "followee_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "user_followee_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dataset_followee_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "q",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_followee_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "organization_followee_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dashboard_activity_list",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dashboard_activity_list_html",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dashboard_new_activities_count",
+            "properties": [
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "member_roles_list",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "help_show",
+            "properties": [
+                {
+                    "name": "offset",
+                    "type": "int"
+                },
+                {
+                    "name": "limit",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "config_option_show",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "config_option_list",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "job_list",
+            "properties": [
+                {
+                    "name": "group_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "job_show",
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "package_create",
+            "properties": [
+                {
+                    "name": "key",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource_create",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "resource_view_create",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "resource_create_default_resource_views",
+            "properties": [
+                {
+                    "name": "queues",
+                    "type": "list"
+                }
+            ]
+        },
+        {
+            "name": "package_create_default_resource_views",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "package_relationship_create",
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "private",
+                    "type": "bool"
+                },
+                {
+                    "name": "author",
+                    "type": "string"
+                },
+                {
+                    "name": "author_email",
+                    "type": "string"
+                },
+                {
+                    "name": "maintainer",
+                    "type": "string"
+                },
+                {
+                    "name": "maintainer_email",
+                    "type": "string"
+                },
+                {
+                    "name": "license_id",
+                    "type": "license"
+                },
+                {
+                    "name": "notes",
+                    "type": "id"
+                },
+                {
+                    "name": "url",
+                    "type": "string"
+                },
+                {
+                    "name": "version",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "string"
+                },
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "resources",
+                    "type": "string"
+                },
+                {
+                    "name": "tags",
+                    "type": "string"
+                },
+                {
+                    "name": "extras",
+                    "type": "resource"
+                },
+                {
+                    "name": "relationships_as_object",
+                    "type": "dictionaries"
+                },
+                {
+                    "name": "relationships_as_subject",
+                    "type": "tag"
+                },
+                {
+                    "name": "groups",
+                    "type": "dictionaries"
+                },
+                {
+                    "name": "owner_org",
+                    "type": "dataset"
+                }
+            ]
+        },
+        {
+            "name": "member_create",
+            "properties": [
+                {
+                    "name": "package_id",
+                    "type": "string"
+                },
+                {
+                    "name": "url",
+                    "type": "string"
+                },
+                {
+                    "name": "revision_id",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "format",
+                    "type": "string"
+                },
+                {
+                    "name": "hash",
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "resource_type",
+                    "type": "string"
+                },
+                {
+                    "name": "mimetype",
+                    "type": "string"
+                },
+                {
+                    "name": "mimetype_inner",
+                    "type": "string"
+                },
+                {
+                    "name": "cache_url",
+                    "type": "string"
+                },
+                {
+                    "name": "size",
+                    "type": "int"
+                },
+                {
+                    "name": "created",
+                    "type": "iso"
+                },
+                {
+                    "name": "last_modified",
+                    "type": "date"
+                },
+                {
+                    "name": "cache_last_updated",
+                    "type": "string"
+                },
+                {
+                    "name": "upload",
+                    "type": "iso"
+                }
+            ]
+        },
+        {
+            "name": "group_create",
+            "properties": [
+                {
+                    "name": "resource_id",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "view_type",
+                    "type": "string"
+                },
+                {
+                    "name": "config",
+                    "type": "JSON"
+                }
+            ]
+        },
+        {
+            "name": "organization_create",
+            "properties": [
+                {
+                    "name": "resource",
+                    "type": "dict"
+                },
+                {
+                    "name": "package",
+                    "type": "dict"
+                },
+                {
+                    "name": "create_datastore_views",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "rating_create",
+            "properties": [
+                {
+                    "name": "package",
+                    "type": "dict"
+                },
+                {
+                    "name": "create_datastore_views",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "user_create",
+            "properties": [
+                {
+                    "name": "subject",
+                    "type": "string"
+                },
+                {
+                    "name": "object",
+                    "type": "string"
+                },
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "comment",
+                    "type": null
+                }
+            ]
+        },
+        {
+            "name": "user_invite",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "object",
+                    "type": "string"
+                },
+                {
+                    "name": "object_type",
+                    "type": "string"
+                },
+                {
+                    "name": "capacity",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "vocabulary_create",
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "image_url",
+                    "type": "string"
+                },
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "string"
+                },
+                {
+                    "name": "approval_status",
+                    "type": "string"
+                },
+                {
+                    "name": "extras",
+                    "type": "dataset"
+                },
+                {
+                    "name": "packages",
+                    "type": "extra"
+                },
+                {
+                    "name": "groups",
+                    "type": "dictionaries"
+                },
+                {
+                    "name": "users",
+                    "type": "dictionaries"
+                }
+            ]
+        },
+        {
+            "name": "activity_create",
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "description",
+                    "type": "string"
+                },
+                {
+                    "name": "image_url",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "string"
+                },
+                {
+                    "name": "approval_status",
+                    "type": "string"
+                },
+                {
+                    "name": "extras",
+                    "type": "dataset"
+                },
+                {
+                    "name": "packages",
+                    "type": "extra"
+                },
+                {
+                    "name": "users",
+                    "type": "dictionaries"
+                }
+            ]
+        },
+        {
+            "name": "tag_create",
+            "properties": [
+                {
+                    "name": "package",
+                    "type": "string"
+                },
+                {
+                    "name": "rating",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "follow_user",
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "email",
+                    "type": "string"
+                },
+                {
+                    "name": "password",
+                    "type": "string"
+                },
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "fullname",
+                    "type": "string"
+                },
+                {
+                    "name": "about",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "follow_dataset",
+            "properties": [
+                {
+                    "name": "email",
+                    "type": "string"
+                },
+                {
+                    "name": "group_id",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_member_create",
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "tags",
+                    "type": "tag"
+                }
+            ]
+        },
+        {
+            "name": "organization_member_create",
+            "properties": [
+                {
+                    "name": "user_id",
+                    "type": "string"
+                },
+                {
+                    "name": "object_id",
+                    "type": "'my_dataset'"
+                },
+                {
+                    "name": "activity_type",
+                    "type": "string"
+                },
+                {
+                    "name": "data",
+                    "type": "dictionary"
+                }
+            ]
+        },
+        {
+            "name": "follow_group",
+            "properties": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "vocabulary_id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource_update",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource_view_update",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource_view_reorder",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "username",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "package_update",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "username",
+                    "type": "string"
+                },
+                {
+                    "name": "role",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "package_resource_reorder",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "package_relationship_update",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_update",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "organization_update",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "order",
+                    "type": "strings"
+                }
+            ]
+        },
+        {
+            "name": "user_update",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "user_generate_apikey",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "order",
+                    "type": "list"
+                }
+            ]
+        },
+        {
+            "name": "task_status_update",
+            "properties": [
+                {
+                    "name": "subject",
+                    "type": "string"
+                },
+                {
+                    "name": "object",
+                    "type": "string"
+                },
+                {
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "name": "comment",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "task_status_update_many",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "term_translation_update",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "packages",
+                    "type": "package_owner_org_update()"
+                }
+            ]
+        },
+        {
+            "name": "term_translation_update_many",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "vocabulary_update",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dashboard_mark_activities_old",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "entity_id",
+                    "type": "string"
+                },
+                {
+                    "name": "entity_type",
+                    "type": "string"
+                },
+                {
+                    "name": "task_type",
+                    "type": "string"
+                },
+                {
+                    "name": "key",
+                    "type": "string"
+                },
+                {
+                    "name": "value",
+                    "type": null
+                },
+                {
+                    "name": "state",
+                    "type": null
+                },
+                {
+                    "name": "last_updated",
+                    "type": null
+                },
+                {
+                    "name": "error",
+                    "type": null
+                }
+            ]
+        },
+        {
+            "name": "send_email_notifications",
+            "properties": [
+                {
+                    "name": "data",
+                    "type": "dictionaries"
+                }
+            ]
+        },
+        {
+            "name": "package_owner_org_update",
+            "properties": [
+                {
+                    "name": "term",
+                    "type": "string"
+                },
+                {
+                    "name": "term_translation",
+                    "type": "string"
+                },
+                {
+                    "name": "lang_code",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "bulk_update_private",
+            "properties": [
+                {
+                    "name": "data",
+                    "type": "dictionaries"
+                }
+            ]
+        },
+        {
+            "name": "bulk_update_public",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "bulk_update_delete",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "config_option_update",
+            "properties": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ]
+        },
+        {
+            "name": "package_patch",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "organization_id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource_patch",
+            "properties": [
+                {
+                    "name": "datasets",
+                    "type": "strings"
+                },
+                {
+                    "name": "org_id",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "group_patch",
+            "properties": [
+                {
+                    "name": "datasets",
+                    "type": "strings"
+                },
+                {
+                    "name": "org_id",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "organization_patch",
+            "properties": [
+                {
+                    "name": "datasets",
+                    "type": "strings"
+                },
+                {
+                    "name": "org_id",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "user_delete",
+            "properties": [
+                {
+                    "name": "key",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "package_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "dataset_purge",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource_view_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "resource_view_clear",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "package_relationship_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "member_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "organization_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_purge",
+            "properties": [
+                {
+                    "name": "view_types",
+                    "type": "list"
+                }
+            ]
+        },
+        {
+            "name": "organization_purge",
+            "properties": [
+                {
+                    "name": "subject",
+                    "type": "string"
+                },
+                {
+                    "name": "object",
+                    "type": "string"
+                },
+                {
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "task_status_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "object",
+                    "type": "string"
+                },
+                {
+                    "name": "object_type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "vocabulary_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "tag_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "unfollow_user",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "unfollow_dataset",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "group_member_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "organization_member_delete",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "unfollow_group",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "vocabulary_id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "job_clear",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "job_cancel",
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,273 @@
+action_name,description,parameter_name,parameter_type
+site_read,Return True.,,
+package_list,Return a list of the names of the site’s datasets (packages).,limit offset,int int
+current_package_list_with_resources,Return a list of the site’s datasets (packages) and their resources. The list is sorted most-recently-modified first.,limit offset page,int int int
+revision_list,"Return a list of the IDs of the site’s revisions. They are sorted with
+the newest first. Since the results are limited to 50 IDs, you can page through them using
+parameter .",since_id since_time sort,string string string
+package_revision_list,Return a dataset (package)’s revisions as a list of dictionaries.,id,string
+member_list,Return the members of a group. The user must have permission to ‘get’ the group.,id object_type capacity,string string string
+group_list,Return a list of the names of the site’s groups.,order_by sort limit offset groups all_fields include_dataset_count include_extras include_tags include_groups include_users,string string int int list of strings bool bool bool bool bool bool
+organization_list,Return a list of the names of the site’s organizations.,order_by sort limit offset organizations all_fields include_dataset_count include_extras include_tags include_groups include_users,string string int int list of strings bool bool bool bool bool bool
+group_list_authz,Return the list of groups that the user is authorized to edit.,available_only am_member,bool bool
+organization_list_for_user,"Return the organizations that the user has a given permission for. Specifically it returns the list of organizations that the currently
+authorized user has a given permission (for example: "manage_group")
+against. By default this returns the list of organizations that the currently
+authorized user is member of, in any capacity. When a user becomes a member of an organization in CKAN they’re given a
+"capacity" (sometimes called a "role"), for example "member", "editor" or
+"admin". Each of these roles has certain permissions associated with it. For example
+the admin role has the "admin" permission (which means they have permission
+to do anything). The editor role has permissions like "create_dataset",
+"update_dataset" and "delete_dataset".  The member role has the "read"
+permission. This function returns the list of organizations that the authorized user
+has a given permission for. For example the list of organizations that the
+user is an admin of, or the list of organizations that the user can create
+datasets in. This takes account of when permissions cascade down an
+organization hierarchy.",id permission include_dataset_count,string string bool
+group_revision_list,Return a group’s revisions.,id,string
+organization_revision_list,Return an organization’s revisions.,id,string
+license_list,Return the list of licenses available for datasets on the site.,,
+tag_list,"Return a list of the site’s tags. By default only free tags (tags that don’t belong to a vocabulary) are
+returned. If the argument is given then only tags
+belonging to that vocabulary will be returned instead.",query vocabulary_id all_fields,string string bool
+user_list,Return a list of the site’s user accounts.,q order_by all_fields,string string bool
+package_relationships_list,Return a dataset (package)’s relationships.,id id2 rel,string string
+package_show,Return the metadata of a dataset (package) and its resources.,id use_default_schema include_tracking,string bool bool
+resource_show,Return the metadata of a resource.,id include_tracking,string bool
+resource_view_show,Return the metadata of a resource_view.,id,string
+resource_view_list,Return the list of resource views for a particular resource.,id,string
+revision_show,Return the details of a revision.,id,string
+group_show,Return the details of a group.,id include_datasets include_dataset_count include_extras include_users include_groups include_tags include_followers,string bool bool bool bool bool bool bool
+organization_show,Return the details of a organization.,id include_datasets include_dataset_count include_extras include_users include_groups include_tags include_followers,string bool bool bool bool bool bool bool
+group_package_show,Return the datasets (packages) of a group.,id limit,string int
+tag_show,Return the details of a tag and all its datasets.,id vocabulary_id include_datasets,string string bool
+user_show,Return a user account. Either the or the parameter must be given.,id user_obj include_datasets include_num_followers include_password_hash,string user dictionary bool bool bool
+package_autocomplete,"Return a list of datasets (packages) that match a string. Datasets with names or titles that contain the query string will be
+returned.",q limit,string int
+format_autocomplete,Return a list of resource formats whose names contain a string.,q limit,string int
+user_autocomplete,Return a list of user names that contain a string.,q limit,string int
+group_autocomplete,Return a list of group names that contain a string.,q limit,string int
+organization_autocomplete,Return a list of organization names that contain a string.,q limit,string int
+package_search,"Searches for packages satisfying a given search criteria. This action accepts solr search query parameters (details below), and
+returns a dictionary of results, including dictized datasets that match
+the search criteria, a search count and also facet information. For more in depth treatment of each paramter, please read the . This action accepts a of solr’s search query parameters: The following advanced Solr parameters are supported as well. Note that
+some of these are only available on particular Solr versions. See Solr’s and documentation for further details on them: , , , , , , datasets containing the word , or  datasets with the tag  top 10 tags The result of this action is a dict with the following keys: An example result: The full solr query language is not exposed, including.",q fq fq_list sort rows start facet facet.mincount facet.limit facet.field include_drafts include_private use_default_schema,string string list of strings string int int string int int list of strings bool bool bool
+,,,
+resource_search,"Searches for resources satisfying a given search criteria. It returns a dictionary with 2 fields: and .  The field contains the total number of Resources found without the
+limit or query parameters having an effect.  The field is a
+list of dictized Resource objects. The ‘query’ parameter is a required field.  It is a string of the form or a list of strings, each of the same form.  Within
+each string, is a field or extra field on the Resource domain
+object. If is , then an attempt is made to match the as a of the field. If is an extra field, then an attempt is made to match against
+the extra fields stored against the Resource. Note: The search is limited to search against extra fields declared in
+the config setting . Note: Due to a Resource’s extra fields being stored as a json blob, the
+match is made against the json string representation.  As such, false
+positives may occur: If the search criteria is: Then a json blob with the string representation of: will match the search criteria!  This is a known short-coming of this
+approach. All matches are made ignoring case; and apart from the field,
+a term matches if it is a substring of the field’s value. Finally, when specifying more than one search criteria, the criteria are
+AND-ed together. The parameter is used to control the ordering of the results.
+Currently only ordering one field is available, and in ascending order
+only. The parameter is deprecated as it is not compatible with calling
+this action with a GET request to the action API. The context may contain a flag, , which if True will make
+this action behave as if being used by the internal search api.  ie - the
+results will not be dictized, and SearchErrors are thrown for bad search
+queries (rather than ValidationErrors).",query fields order_by offset limit,dict of fields to search terms. string int int
+tag_search,"Return a list of tags whose names contain a given string. By default only free tags (tags that don’t belong to any vocabulary) are
+searched. If the argument is given then only tags
+belonging to that vocabulary will be searched instead.",query vocabulary_id fields limit offset,string or list of strings string dictionary int int
+,"The number of tags in the result. The list of tags whose names contain the given string, a list of
+dictionaries.",,
+tag_autocomplete,"Return a list of tag names that contain a given string. By default only free tags (tags that don’t belong to any vocabulary) are
+searched. If the argument is given then only tags
+belonging to that vocabulary will be searched instead.",query vocabulary_id fields limit offset,string string dictionary int int
+task_status_show,Return a task status. Either the parameter the ,   parameters must be given.,id entity_id task_type key,string string string string
+term_translation_show,Return the translations for the given term(s) and language(s).,terms lang_codes,list of strings list of language code strings
+get_site_user,Return the ckan site user,defer_commit,bool
+status_show,Return a dictionary with information about the site’s configuration.,,
+vocabulary_list,Return a list of all the site’s tag vocabularies.,,
+vocabulary_show,Return a single tag vocabulary.,id,string
+user_activity_list,Return a user’s public activity stream. You must be authorized to view the user’s profile.,id offset limit,string int int
+package_activity_list,Return a package’s activity stream. You must be authorized to view the package.,id offset limit,string int int
+group_activity_list,Return a group’s activity stream. You must be authorized to view the group.,id offset limit,string int int
+organization_activity_list,Return a organization’s activity stream.,id offset limit,string int int
+recently_changed_packages_activity_list,Return the activity stream of all recently added or changed packages.,offset limit,int int
+activity_detail_list,Return an activity’s list of activity detail items.,id,string
+user_activity_list_html,"Return a user’s public activity stream as HTML. The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",id offset limit,string int int
+package_activity_list_html,"Return a package’s activity stream as HTML. The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",id offset limit,string int int
+group_activity_list_html,"Return a group’s activity stream as HTML. The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",id offset limit,string int int
+organization_activity_list_html,"Return a organization’s activity stream as HTML. The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",id offset limit,string int int
+recently_changed_packages_activity_list_html,"Return the activity stream of all recently changed packages as HTML. The activity stream includes all recently added or changed packages. It is
+rendered as a snippet of HTML meant to be included in an HTML page, i.e. it
+doesn’t have any HTML header or footer.",offset limit,int int
+user_follower_count,Return the number of followers of a user.,id,string
+dataset_follower_count,Return the number of followers of a dataset.,id,string
+group_follower_count,Return the number of followers of a group.,id,string
+organization_follower_count,Return the number of followers of an organization.,id,string
+user_follower_list,Return the list of users that are following the given user.,id,string
+dataset_follower_list,Return the list of users that are following the given dataset.,id,string
+group_follower_list,Return the list of users that are following the given group.,id,string
+organization_follower_list,Return the list of users that are following the given organization.,id,string
+am_following_user,Return if you’re following the given user, if not.,id,string
+am_following_dataset,Return if you’re following the given dataset, if not.,id,string
+am_following_group,Return if you’re following the given group, if not.,id,string
+followee_count,"Return the number of objects that are followed by the given user. Counts all objects, of any type, that the given user is following
+(e.g. followed users, followed datasets, followed groups).",id,string
+user_followee_count,Return the number of users that are followed by the given user.,id,string
+dataset_followee_count,Return the number of datasets that are followed by the given user.,id,string
+group_followee_count,Return the number of groups that are followed by the given user.,id,string
+followee_list,"Return the list of objects that are followed by the given user. Returns all objects, of any type, that the given user is following
+(e.g. followed users, followed datasets, followed groups.. ).",id q,string string
+user_followee_list,Return the list of users that are followed by the given user.,id,string
+dataset_followee_list,Return the list of datasets that are followed by the given user.,id,string
+group_followee_list,Return the list of groups that are followed by the given user.,id,string
+organization_followee_list,Return the list of organizations that are followed by the given user.,id,string
+dashboard_activity_list,"Unlike the activity dictionaries returned by other actions, these activity dictionaries have an extra boolean value with key that tells you whether the activity happened since the user last
+viewed her dashboard ( ) or not ( ). The user’s own activities are always marked .",offset limit,int int
+,,,
+dashboard_activity_list_html,"The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",offset limit,int int
+,,,
+dashboard_new_activities_count,"Return the number of new activities in the user’s dashboard. Return the number of new activities in the authorized user’s dashboard
+activity stream. Activities from the user herself are not counted by this function even
+though they appear in the dashboard (users don’t want to be notified about
+things they did themselves).",,
+member_roles_list,Return the possible roles for members of groups and organizations.,group_type,string
+help_show,Return the help string for a particular API action.,name,string
+config_option_show,Show the current value of a particular configuration option. Only returns runtime-editable config options (the ones returned by ), which can be updated with the action.,key,string
+config_option_list,,,
+,,,
+job_list,List enqueued background jobs.,queues,list
+job_show,Show details for a background job.,id,string
+package_create,"Create a new dataset (package). You must be authorized to create new datasets. If you specify any groups
+for the new dataset, you must also be authorized to edit these groups. Plugins may change the parameters of this function depending on the value
+of the parameter, see the plugin interface.",name title private author author_email maintainer maintainer_email license_id notes url version state type resources tags extras relationships_as_object relationships_as_subject groups owner_org,string string bool string string string string license id string string string string , no longer than 100 characters string string list of resource dictionaries list of tag dictionaries list of dataset extra dictionaries list of relationship dictionaries list of relationship dictionaries list of dictionaries string
+resource_create,Appends a new resource to a datasets list of resources.,package_id url revision_id description format hash name resource_type mimetype mimetype_inner cache_url size created last_modified cache_last_updated upload,string string string string string string string string string string string int iso date string iso date string iso date string FieldStorage ( optional ) needs multipart/form-data
+resource_view_create,Creates a new resource view.,resource_id title description view_type config,string string string string JSON string
+resource_create_default_resource_views,"Creates the default views (if necessary) on the provided resource The function will get the plugins for the default views defined in
+the configuration, and if some were found the method of
+each one of them will be called to determine if a resource view should
+be created. Resource views extensions get the resource dict and the
+parent dataset dict. If the latter is not provided, is called to get it. By default only view plugins that don’t require the resource data to be in
+the DataStore are called. See for details on the parameter.",resource package create_datastore_views,dict dict bool
+package_create_default_resource_views,"Creates the default views on all resources of the provided dataset By default only view plugins that don’t require the resource data to be in
+the DataStore are called. Passing as True will
+only create views that require data to be in the DataStore. The first case
+happens when the function is called from or , the second when it’s called from the DataPusher when
+data was uploaded to the DataStore.",package create_datastore_views,dict bool
+package_relationship_create,Create a relationship between two datasets (packages). You must be authorized to edit both the subject and the object datasets.,subject object type comment,string string string
+member_create,"Make an object (e.g. a user, dataset or group) a member of a group. If the object is already a member of the group then the capacity of the
+membership will be updated. You must be authorized to edit the group.",id object object_type capacity,string string string string
+group_create,"Create a new group. You must be authorized to create groups. Plugins may change the parameters of this function depending on the value
+of the parameter, see the plugin interface.",name id title description image_url type state approval_status extras packages groups users,string string string string string string string string list of dataset extra dictionaries list of dictionaries list of dictionaries list of dictionaries
+organization_create,"Create a new organization. You must be authorized to create organizations. Plugins may change the parameters of this function depending on the value
+of the parameter, see the plugin interface.",name id title description image_url state approval_status extras packages users,string string string string string string string list of dataset extra dictionaries list of dictionaries list of dictionaries
+rating_create,Rate a dataset (package). You must provide your API key in the Authorization header.,package rating,string int
+user_create,Create a new user. You must be authorized to create users.,name email password id fullname about,string string string string string string
+user_invite,Invite a new user. You must be authorized to create group members.,email group_id role,string string string
+vocabulary_create,Create a new tag vocabulary. You must be a sysadmin to create vocabularies.,name tags,string list of tag dictionaries
+activity_create,Create a new activity stream activity. You must be a sysadmin to create new activities.,user_id object_id activity_type data,string string dictionary
+tag_create,"Create a new vocabulary tag. You must be a sysadmin to create vocabulary tags. You can only use this function to create tags that belong to a vocabulary,
+not to create free tags. (To create a new free tag simply add the tag to
+a package, e.g. using the function.)",name vocabulary_id,string string
+follow_user,Start following another user. You must provide your API key in the Authorization header.,id,string
+follow_dataset,Start following a dataset. You must provide your API key in the Authorization header.,id,string
+group_member_create,Make a user a member of a group. You must be authorized to edit the group.,id username role,string string string
+organization_member_create,Make a user a member of an organization. You must be authorized to edit the organization.,id username role,string string string
+follow_group,Start following a group. You must provide your API key in the Authorization header.,id,string
+resource_update,"Update a resource. To update a resource you must be authorized to update the dataset that the
+resource belongs to. For further parameters see .",id,string
+resource_view_update,"Update a resource view. To update a resource_view you must be authorized to update the resource
+that the resource_view belongs to. For further parameters see .",id,string
+resource_view_reorder,Reorder resource views.,id order,string list of strings
+package_update,"Update a dataset (package). You must be authorized to edit the dataset and the groups that it belongs
+to. It is recommended to call , make the desired changes to
+the result, and then call with it. Plugins may change the parameters of this function depending on the value
+of the dataset’s attribute, see the plugin interface. For further parameters see .",id,string
+package_resource_reorder,"Reorder resources against datasets.  If only partial resource ids are
+supplied then these are assumed to be first and the other resources will
+stay in their original order",id order,string list
+package_relationship_update,"Update a relationship between two datasets (packages). The subject, object and type parameters are required to identify the
+relationship. Only the comment can be updated. You must be authorized to edit both the subject and the object datasets.",subject object type comment,string string string string
+group_update,"Update a group. You must be authorized to edit the group. Plugins may change the parameters of this function depending on the value
+of the group’s attribute, see the plugin interface. For further parameters see .",id,string
+organization_update,Update a organization. You must be authorized to edit the organization. For further parameters see .,id packages,string
+user_update,"Update a user account. Normal users can only update their own user accounts. Sysadmins can update
+any user account. Can not modify exisiting user’s name. For further parameters see .",id,string
+user_generate_apikey,Cycle a user’s API key,id,string
+task_status_update,Update a task status.,id entity_id entity_type task_type key value state last_updated error,string string string string string
+task_status_update_many,Update many task statuses at once.,data,list of dictionaries
+term_translation_update,Create or update a term translation. You must be a sysadmin to create or update term translations.,term term_translation lang_code,string string string
+term_translation_update_many,Create or update many term translations at once.,data,list of dictionaries
+vocabulary_update,Update a tag vocabulary. You must be a sysadmin to update vocabularies. For further parameters see .,id,string
+dashboard_mark_activities_old,Mark all the authorized user’s new dashboard activities as old. This will reset to 0.,,
+send_email_notifications,"Send any pending activity stream notification emails to users. You must provide a sysadmin’s API key in the Authorization header of the
+request, or call this action from the command-line via a command.",,
+package_owner_org_update,Update the owning organization of a dataset,id organization_id,string string
+bulk_update_private,Make a list of datasets private,datasets org_id,list of strings int
+bulk_update_public,Make a list of datasets public,datasets org_id,list of strings int
+bulk_update_delete,Make a list of datasets deleted,datasets org_id,list of strings int
+config_option_update,"Allows to modify some CKAN runtime-editable config options It takes arbitrary key, value pairs and checks the keys against the
+config options update schema. If some of the provided keys are not present
+in the schema a is raised.
+The values are then validated against the schema, and if validation is
+passed, for each key, value config option: The following lists a parameter, but this should be replaced by
+whichever config options want to be updated, eg:",key,string
+package_patch,"Patch a dataset (package). The difference between the update and patch methods is that the patch will
+perform an update of the provided parameters, while leaving all other
+parameters unchanged, whereas the update methods deletes all parameters
+not explicitly provided in the data_dict. You are able to partially update and/or create resources with
+package_patch. If you are updating existing resources be sure to provide
+the resource id. Existing resources excluded from the package_patch
+data_dict will be removed. Resources in the package data_dict without
+an id will be treated as new resources and will be added. New resources
+added with the patch method do not create the default views. You must be authorized to edit the dataset and the groups that it belongs
+to.",id,string
+resource_patch,"Patch a resource The difference between the update and patch methods is that the patch will
+perform an update of the provided parameters, while leaving all other
+parameters unchanged, whereas the update methods deletes all parameters
+not explicitly provided in the data_dict",id,string
+group_patch,"Patch a group The difference between the update and patch methods is that the patch will
+perform an update of the provided parameters, while leaving all other
+parameters unchanged, whereas the update methods deletes all parameters
+not explicitly provided in the data_dict",id,string
+organization_patch,"Patch an organization The difference between the update and patch methods is that the patch will
+perform an update of the provided parameters, while leaving all other
+parameters unchanged, whereas the update methods deletes all parameters
+not explicitly provided in the data_dict",id,string
+user_delete,Delete a user. Only sysadmins can delete users.,id,string
+package_delete,"Delete a dataset (package). This makes the dataset disappear from all web & API views, apart from the
+trash. You must be authorized to delete the dataset.",id,string
+dataset_purge,"Purge a dataset. Purging a database completely removes the dataset from the CKAN database,
+whereas deleting a dataset simply marks the dataset as deleted (it will no
+longer show up in the front-end, but is still in the db). You must be authorized to purge the dataset.",id,string
+resource_delete,Delete a resource from a dataset. You must be a sysadmin or the owner of the resource to delete it.,id,string
+resource_view_delete,Delete a resource_view.,id,string
+resource_view_clear,Delete all resource views, or all of a particular type.,view_types,list
+package_relationship_delete,"Delete a dataset (package) relationship. You must be authorised to delete dataset relationships, and to edit both
+the subject and the object datasets.",subject object type,string string string
+member_delete,Remove an object (e.g. a user, dataset or group) from a group. You must be authorized to edit a group to remove objects from it.,id object object_type,string string string
+group_delete,Delete a group. You must be authorized to delete the group.,id,string
+organization_delete,"Delete an organization. You must be authorized to delete the organization
+and no datasets should belong to the organization
+unless ‘ckan.auth.create_unowned_dataset=True’",id,string
+group_purge,"Purge a group. Purging a group completely removes the group from the CKAN database,
+whereas deleting a group simply marks the group as deleted (it will no
+longer show up in the frontend, but is still in the db). Datasets in the organization will remain, just not in the purged group. You must be authorized to purge the group.",id,string
+organization_purge,"Purge an organization. Purging an organization completely removes the organization from the CKAN
+database, whereas deleting an organization simply marks the organization as
+deleted (it will no longer show up in the frontend, but is still in the
+db). Datasets owned by the organization will remain, just not in an
+organization any more. You must be authorized to purge the organization.",id,string
+task_status_delete,Delete a task status. You must be a sysadmin to delete task statuses.,id,string
+vocabulary_delete,Delete a tag vocabulary. You must be a sysadmin to delete vocabularies.,id,string
+tag_delete,Delete a tag. You must be a sysadmin to delete tags.,id vocabulary_id,string string
+unfollow_user,Stop following a user.,id,string
+unfollow_dataset,Stop following a dataset.,id,string
+group_member_delete,Remove a user from a group. You must be authorized to edit the group.,id username,string string
+organization_member_delete,Remove a user from an organization. You must be authorized to edit the organization.,id username,string string
+unfollow_group,Stop following a group.,id,string
+job_clear,Clear background job queues. Does not affect jobs that are already being processed.,queues,list
+job_cancel,Cancel a queued background job. Removes the job from the queue and deletes it.,id,string

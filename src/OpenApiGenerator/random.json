@@ -1,0 +1,5 @@
+{
+  "help": "http://datasethub.com/api/3/action/help_show?name=help_show",
+  "success": true,
+  "result": "Return a list of the site's datasets (packages) and their resources.\n\n    The list is sorted most-recently-modified first.\n\n    :param limit: if given, the list of datasets will be broken into pages of\n        at most ``limit`` datasets per page and only one page will be returned\n        at a time (optional)\n    :type limit: int\n    :param offset: when ``limit`` is given, the offset to start\n        returning packages from\n    :type offset: int\n    :param page: when ``limit`` is given, which page to return,\n        Deprecated: use ``offset``\n    :type page: int\n\n    :rtype: list of dictionaries\n\n    "
+}

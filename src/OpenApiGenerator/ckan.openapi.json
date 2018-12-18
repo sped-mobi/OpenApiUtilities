@@ -1,0 +1,112 @@
+
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "CKAN OpenAPI",
+    "description": "Open Api 3.0 Specification for CKAN",
+    "termsOfService": "http://www.opendefinition.org/licenses/odc-by",
+    "contact": {
+      "name": "Brad R. Marshall",
+      "url": "http://sped.mobi",
+      "email": "bmarshall@sped.mobi"
+    },
+    "license": {
+      "name": "Open Data Commons Attribution License (ODCAL)",
+      "url": "http://www.opendefinition.org/licenses/odc-by"
+    },
+    "version": "3.0"
+  },
+  "servers": [
+    {
+      "url": "{scheme}://datasethub.com/{basePath}",
+      "description": "Amazon Api Gateway Production Server",
+      "variables": {
+        "basePath": {
+          "default": "api/3/action",
+          "description": "Represents the base path for the api."
+        },
+        "scheme": {
+          "default": "http",
+          "description": "The Data Set API is accessible via https and http.",
+          "enum": [
+            "http",
+            "https"
+          ]
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/package_list": {
+      "get": {
+        "summary": "The REST read message request for the PackageList() API call.",
+        "description": "Return a list of the names of the site’s datasets (packages).",
+        "operationId": "PackageList",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "If given, the list of datasets will be broken into pages of at most _limit datasets per page and only one page will be returned at a time (optional)",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "When _limit is given, the offset to start returning packages from.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This is the response when the request has been completed successfully. It is the ApiResult from the service provider.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiException": {
+        "type": "object",
+        "properties": {
+          "__type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiResult": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "object"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "help": {
+            "type": "string",
+            "format": "uri"
+          }
+
+        },
+        "description": "Represents an Api Result."
+      }
+    }
+  }
+}

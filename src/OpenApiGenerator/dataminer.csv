@@ -1,0 +1,290 @@
+full_name,action_name,namespace,description,path_segment
+ckan.logic.action.get.site_read,site_read,ckan.logic.action.get.,Return True.,/site_read
+ckan.logic.action.get.package_list,package_list,ckan.logic.action.get.,Return a list of the names of the site’s datasets (packages).,/package_list
+ckan.logic.action.get.current_package_list_with_resources,current_package_list_with_resources,ckan.logic.action.get.,Return a list of the site’s datasets (packages) and their resources. The list is sorted most-recently-modified first.,/current_package_list_with_resources
+ckan.logic.action.get.revision_list,revision_list,ckan.logic.action.get.,"Return a list of the IDs of the site’s revisions. They are sorted with
+the newest first. Since the results are limited to 50 IDs, you can page through them using
+parameter since_id.",/revision_list
+ckan.logic.action.get.package_revision_list,package_revision_list,ckan.logic.action.get.,Return a dataset (package)’s revisions as a list of dictionaries.,/package_revision_list
+ckan.logic.action.get.member_list,member_list,ckan.logic.action.get.,Return the members of a group. The user must have permission to ‘get’ the group.,/member_list
+ckan.logic.action.get.group_list,group_list,ckan.logic.action.get.,Return a list of the names of the site’s groups.,/group_list
+ckan.logic.action.get.organization_list,organization_list,ckan.logic.action.get.,Return a list of the names of the site’s organizations.,/organization_list
+ckan.logic.action.get.group_list_authz,group_list_authz,ckan.logic.action.get.,Return the list of groups that the user is authorized to edit.,/group_list_authz
+ckan.logic.action.get.organization_list_for_user,organization_list_for_user,ckan.logic.action.get.,"Return the organizations that the user has a given permission for. Specifically it returns the list of organizations that the currently
+authorized user has a given permission (for example: “manage_group”)
+against. By default this returns the list of organizations that the currently
+authorized user is member of, in any capacity. When a user becomes a member of an organization in CKAN they’re given a
+“capacity” (sometimes called a “role”), for example “member”, “editor” or
+“admin”. Each of these roles has certain permissions associated with it. For example
+the admin role has the “admin” permission (which means they have permission
+to do anything). The editor role has permissions like “create_dataset”,
+“update_dataset” and “delete_dataset”.  The member role has the “read”
+permission. This function returns the list of organizations that the authorized user
+has a given permission for. For example the list of organizations that the
+user is an admin of, or the list of organizations that the user can create
+datasets in. This takes account of when permissions cascade down an
+organization hierarchy.",/organization_list_for_user
+ckan.logic.action.get.group_revision_list,group_revision_list,ckan.logic.action.get.,Return a group’s revisions.,/group_revision_list
+ckan.logic.action.get.organization_revision_list,organization_revision_list,ckan.logic.action.get.,Return an organization’s revisions.,/organization_revision_list
+ckan.logic.action.get.license_list,license_list,ckan.logic.action.get.,Return the list of licenses available for datasets on the site.,/license_list
+ckan.logic.action.get.tag_list,tag_list,ckan.logic.action.get.,"Return a list of the site’s tags. By default only free tags (tags that don’t belong to a vocabulary) are
+returned. If the vocabulary_id argument is given then only tags
+belonging to that vocabulary will be returned instead.",/tag_list
+ckan.logic.action.get.user_list,user_list,ckan.logic.action.get.,Return a list of the site’s user accounts.,/user_list
+ckan.logic.action.get.package_relationships_list,package_relationships_list,ckan.logic.action.get.,Return a dataset (package)’s relationships.,/package_relationships_list
+ckan.logic.action.get.package_show,package_show,ckan.logic.action.get.,Return the metadata of a dataset (package) and its resources.,/package_show
+ckan.logic.action.get.resource_show,resource_show,ckan.logic.action.get.,Return the metadata of a resource.,/resource_show
+ckan.logic.action.get.resource_view_show,resource_view_show,ckan.logic.action.get.,Return the metadata of a resource_view.,/resource_view_show
+ckan.logic.action.get.resource_view_list,resource_view_list,ckan.logic.action.get.,Return the list of resource views for a particular resource.,/resource_view_list
+ckan.logic.action.get.resource_status_show,resource_status_show,ckan.logic.action.get.,Return the statuses of a resource’s tasks. This function is DEPRECATED.,/resource_status_show
+ckan.logic.action.get.revision_show,revision_show,ckan.logic.action.get.,Return the details of a revision.,/revision_show
+ckan.logic.action.get.group_show,group_show,ckan.logic.action.get.,Return the details of a group.,/group_show
+ckan.logic.action.get.organization_show,organization_show,ckan.logic.action.get.,Return the details of a organization.,/organization_show
+ckan.logic.action.get.group_package_show,group_package_show,ckan.logic.action.get.,Return the datasets (packages) of a group.,/group_package_show
+ckan.logic.action.get.tag_show,tag_show,ckan.logic.action.get.,Return the details of a tag and all its datasets.,/tag_show
+ckan.logic.action.get.user_show,user_show,ckan.logic.action.get.,Return a user account. Either the id or the user_obj parameter must be given.,/user_show
+ckan.logic.action.get.package_autocomplete,package_autocomplete,ckan.logic.action.get.,"Return a list of datasets (packages) that match a string. Datasets with names or titles that contain the query string will be
+returned.",/package_autocomplete
+ckan.logic.action.get.format_autocomplete,format_autocomplete,ckan.logic.action.get.,Return a list of resource formats whose names contain a string.,/format_autocomplete
+ckan.logic.action.get.user_autocomplete,user_autocomplete,ckan.logic.action.get.,Return a list of user names that contain a string.,/user_autocomplete
+ckan.logic.action.get.organization_autocomplete,organization_autocomplete,ckan.logic.action.get.,Return a list of organization names that contain a string.,/organization_autocomplete
+ckan.logic.action.get.package_search,package_search,ckan.logic.action.get.,"Searches for packages satisfying a given search criteria. This action accepts solr search query parameters (details below), and
+returns a dictionary of results, including dictized datasets that match
+the search criteria, a search count and also facet information. For more in depth treatment of each paramter, please read the Solr
+Documentation. This action accepts a subset of solr’s search query parameters: The following advanced Solr parameters are supported as well. Note that
+some of these are only available on particular Solr versions. See Solr’s
+dismax and edismax documentation for further details on them: qf, wt, bf, boost, tie, defType, mm q=flood datasets containing the word flood, floods or flooding
+fq=tags:economy datasets with the tag economy
+facet.field=[""tags""] facet.limit=10 rows=0 top 10 tags The result of this action is a dict with the following keys: An example result: The full solr query language is not exposed, including.",/package_search
+ckan.logic.action.get.resource_search,resource_search,ckan.logic.action.get.,"Searches for resources satisfying a given search criteria. It returns a dictionary with 2 fields: count and results.  The
+count field contains the total number of Resources found without the
+limit or query parameters having an effect.  The results field is a
+list of dictized Resource objects. The ‘query’ parameter is a required field.  It is a string of the form
+{field}:{term} or a list of strings, each of the same form.  Within
+each string, {field} is a field or extra field on the Resource domain
+object. If {field} is ""hash"", then an attempt is made to match the
+{term} as a prefix of the Resource.hash field. If {field} is an extra field, then an attempt is made to match against
+the extra fields stored against the Resource. Note: The search is limited to search against extra fields declared in
+the config setting ckan.extra_resource_fields. Note: Due to a Resource’s extra fields being stored as a json blob, the
+match is made against the json string representation.  As such, false
+positives may occur: If the search criteria is: Then a json blob with the string representation of: will match the search criteria!  This is a known short-coming of this
+approach. All matches are made ignoring case; and apart from the ""hash"" field,
+a term matches if it is a substring of the field’s value. Finally, when specifying more than one search criteria, the criteria are
+AND-ed together. The order parameter is used to control the ordering of the results.
+Currently only ordering one field is available, and in ascending order
+only. The fields parameter is deprecated as it is not compatible with calling
+this action with a GET request to the action API. The context may contain a flag, search_query, which if True will make
+this action behave as if being used by the internal search api.  ie - the
+results will not be dictized, and SearchErrors are thrown for bad search
+queries (rather than ValidationErrors).",/resource_search
+ckan.logic.action.get.tag_search,tag_search,ckan.logic.action.get. 'count' 'results',"Return a list of tags whose names contain a given string. By default only free tags (tags that don’t belong to any vocabulary) are
+searched. If the vocabulary_id argument is given then only tags
+belonging to that vocabulary will be searched instead.",/tag_search
+ckan.logic.action.get.tag_autocomplete,tag_autocomplete,ckan.logic.action.get.,"Return a list of tag names that contain a given string. By default only free tags (tags that don’t belong to any vocabulary) are
+searched. If the vocabulary_id argument is given then only tags
+belonging to that vocabulary will be searched instead.",/tag_autocomplete
+ckan.logic.action.get.task_status_show,task_status_show,ckan.logic.action.get.,"Return a task status. Either the id parameter or the entity_id, task_type and
+key parameters must be given.",/task_status_show
+ckan.logic.action.get.term_translation_show,term_translation_show,ckan.logic.action.get.,Return the translations for the given term(s) and language(s).,/term_translation_show
+ckan.logic.action.get.get_site_user,get_site_user,ckan.logic.action.get.,Return the ckan site user,/get_site_user
+ckan.logic.action.get.status_show,status_show,ckan.logic.action.get.,Return a dictionary with information about the site’s configuration.,/status_show
+ckan.logic.action.get.vocabulary_list,vocabulary_list,ckan.logic.action.get.,Return a list of all the site’s tag vocabularies.,/vocabulary_list
+ckan.logic.action.get.vocabulary_show,vocabulary_show,ckan.logic.action.get.,Return a single tag vocabulary.,/vocabulary_show
+ckan.logic.action.get.user_activity_list,user_activity_list,ckan.logic.action.get.,Return a user’s public activity stream. You must be authorized to view the user’s profile.,/user_activity_list
+ckan.logic.action.get.package_activity_list,package_activity_list,ckan.logic.action.get.,Return a package’s activity stream. You must be authorized to view the package.,/package_activity_list
+ckan.logic.action.get.group_activity_list,group_activity_list,ckan.logic.action.get.,Return a group’s activity stream. You must be authorized to view the group.,/group_activity_list
+ckan.logic.action.get.organization_activity_list,organization_activity_list,ckan.logic.action.get.,Return a organization’s activity stream.,/organization_activity_list
+ckan.logic.action.get.recently_changed_packages_activity_list,recently_changed_packages_activity_list,ckan.logic.action.get.,Return the activity stream of all recently added or changed packages.,/recently_changed_packages_activity_list
+ckan.logic.action.get.activity_detail_list,activity_detail_list,ckan.logic.action.get.,Return an activity’s list of activity detail items.,/activity_detail_list
+ckan.logic.action.get.user_activity_list_html,user_activity_list_html,ckan.logic.action.get.,"Return a user’s public activity stream as HTML. The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",/user_activity_list_html
+ckan.logic.action.get.package_activity_list_html,package_activity_list_html,ckan.logic.action.get.,"Return a package’s activity stream as HTML. The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",/package_activity_list_html
+ckan.logic.action.get.group_activity_list_html,group_activity_list_html,ckan.logic.action.get.,"Return a group’s activity stream as HTML. The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",/group_activity_list_html
+ckan.logic.action.get.organization_activity_list_html,organization_activity_list_html,ckan.logic.action.get.,"Return a organization’s activity stream as HTML. The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",/organization_activity_list_html
+ckan.logic.action.get.recently_changed_packages_activity_list_html,recently_changed_packages_activity_list_html,ckan.logic.action.get.,"Return the activity stream of all recently changed packages as HTML. The activity stream includes all recently added or changed packages. It is
+rendered as a snippet of HTML meant to be included in an HTML page, i.e. it
+doesn’t have any HTML header or footer.",/recently_changed_packages_activity_list_html
+ckan.logic.action.get.user_follower_count,user_follower_count,ckan.logic.action.get.,Return the number of followers of a user.,/user_follower_count
+ckan.logic.action.get.dataset_follower_count,dataset_follower_count,ckan.logic.action.get.,Return the number of followers of a dataset.,/dataset_follower_count
+ckan.logic.action.get.group_follower_count,group_follower_count,ckan.logic.action.get.,Return the number of followers of a group.,/group_follower_count
+ckan.logic.action.get.organization_follower_count,organization_follower_count,ckan.logic.action.get.,Return the number of followers of an organization.,/organization_follower_count
+ckan.logic.action.get.user_follower_list,user_follower_list,ckan.logic.action.get.,Return the list of users that are following the given user.,/user_follower_list
+ckan.logic.action.get.dataset_follower_list,dataset_follower_list,ckan.logic.action.get.,Return the list of users that are following the given dataset.,/dataset_follower_list
+ckan.logic.action.get.group_follower_list,group_follower_list,ckan.logic.action.get.,Return the list of users that are following the given group.,/group_follower_list
+ckan.logic.action.get.organization_follower_list,organization_follower_list,ckan.logic.action.get.,Return the list of users that are following the given organization.,/organization_follower_list
+ckan.logic.action.get.am_following_user,am_following_user,ckan.logic.action.get.,"Return True if you’re following the given user, False if not.",/am_following_user
+ckan.logic.action.get.am_following_dataset,am_following_dataset,ckan.logic.action.get.,"Return True if you’re following the given dataset, False if not.",/am_following_dataset
+ckan.logic.action.get.am_following_group,am_following_group,ckan.logic.action.get.,"Return True if you’re following the given group, False if not.",/am_following_group
+ckan.logic.action.get.followee_count,followee_count,ckan.logic.action.get.,"Return the number of objects that are followed by the given user. Counts all objects, of any type, that the given user is following
+(e.g. followed users, followed datasets, followed groups).",/followee_count
+ckan.logic.action.get.user_followee_count,user_followee_count,ckan.logic.action.get.,Return the number of users that are followed by the given user.,/user_followee_count
+ckan.logic.action.get.dataset_followee_count,dataset_followee_count,ckan.logic.action.get.,Return the number of datasets that are followed by the given user.,/dataset_followee_count
+ckan.logic.action.get.group_followee_count,group_followee_count,ckan.logic.action.get.,Return the number of groups that are followed by the given user.,/group_followee_count
+ckan.logic.action.get.followee_list,followee_list,ckan.logic.action.get.,"Return the list of objects that are followed by the given user. Returns all objects, of any type, that the given user is following
+(e.g. followed users, followed datasets, followed groups.. ).",/followee_list
+ckan.logic.action.get.user_followee_list,user_followee_list,ckan.logic.action.get.,Return the list of users that are followed by the given user.,/user_followee_list
+ckan.logic.action.get.dataset_followee_list,dataset_followee_list,ckan.logic.action.get.,Return the list of datasets that are followed by the given user.,/dataset_followee_list
+ckan.logic.action.get.group_followee_list,group_followee_list,ckan.logic.action.get.,Return the list of groups that are followed by the given user.,/group_followee_list
+ckan.logic.action.get.organization_followee_list,organization_followee_list,ckan.logic.action.get.,Return the list of organizations that are followed by the given user.,/organization_followee_list
+ckan.logic.action.get.dashboard_activity_list,dashboard_activity_list,ckan.logic.action.get.,"Unlike the activity dictionaries returned by other *_activity_list
+actions, these activity dictionaries have an extra boolean value with key
+is_new that tells you whether the activity happened since the user last
+viewed her dashboard ('is_new': True) or not ('is_new': False). The user’s own activities are always marked 'is_new': False.",/dashboard_activity_list
+ckan.logic.action.get.dashboard_activity_list_html,dashboard_activity_list_html,ckan.logic.action.get.,"The activity stream is rendered as a snippet of HTML meant to be included
+in an HTML page, i.e. it doesn’t have any HTML header or footer.",/dashboard_activity_list_html
+ckan.logic.action.get.dashboard_new_activities_count,dashboard_new_activities_count,ckan.logic.action.get.,"Return the number of new activities in the user’s dashboard. Return the number of new activities in the authorized user’s dashboard
+activity stream. Activities from the user herself are not counted by this function even
+though they appear in the dashboard (users don’t want to be notified about
+things they did themselves).",/dashboard_new_activities_count
+ckan.logic.action.get.member_roles_list,member_roles_list,ckan.logic.action.get.,Return the possible roles for members of groups and organizations.,/member_roles_list
+ckan.logic.action.get.help_show,help_show,ckan.logic.action.get.,Return the help string for a particular API action.,/help_show
+ckan.logic.action.get.config_option_show,config_option_show,ckan.logic.action.get.,"Show the current value of a particular configuration option. Only returns runtime-editable config options (the ones returned by
+config_option_list()), which can be updated with the
+config_option_update() action.",/config_option_show
+ckan.logic.action.get.config_option_list,config_option_list,ckan.logic.action.get.,,/config_option_list
+ckan.logic.action.get.job_list,job_list,ckan.logic.action.get.,List enqueued background jobs.,/job_list
+ckan.logic.action.get.job_show,job_show,ckan.logic.action.get.,Show details for a background job.,/job_show
+ckan.logic.action.create.package_create,package_create,ckan.logic.action.create.,"Create a new dataset (package). You must be authorized to create new datasets. If you specify any groups
+for the new dataset, you must also be authorized to edit these groups. Plugins may change the parameters of this function depending on the value
+of the type parameter, see the
+IDatasetForm plugin interface.",/package_create
+ckan.logic.action.create.resource_create,resource_create,ckan.logic.action.create.,Appends a new resource to a datasets list of resources.,/resource_create
+ckan.logic.action.create.resource_view_create,resource_view_create,ckan.logic.action.create.,Creates a new resource view.,/resource_view_create
+ckan.logic.action.create.resource_create_default_resource_views,resource_create_default_resource_views,ckan.logic.action.create.,"Creates the default views (if necessary) on the provided resource The function will get the plugins for the default views defined in
+the configuration, and if some were found the can_view method of
+each one of them will be called to determine if a resource view should
+be created. Resource views extensions get the resource dict and the
+parent dataset dict. If the latter is not provided, package_show is called to get it. By default only view plugins that don’t require the resource data to be in
+the DataStore are called. See
+ckan.logic.action.create.package_create_default_resource_views.`()
+for details on the create_datastore_views parameter.",/resource_create_default_resource_views
+ckan.logic.action.create.package_create_default_resource_views,package_create_default_resource_views,ckan.logic.action.create.,"Creates the default views on all resources of the provided dataset By default only view plugins that don’t require the resource data to be in
+the DataStore are called. Passing create_datastore_views as True will
+only create views that require data to be in the DataStore. The first case
+happens when the function is called from package_create or
+package_update, the second when it’s called from the DataPusher when
+data was uploaded to the DataStore.",/package_create_default_resource_views
+ckan.logic.action.create.package_relationship_create,package_relationship_create,ckan.logic.action.create.,Create a relationship between two datasets (packages). You must be authorized to edit both the subject and the object datasets.,/package_relationship_create
+ckan.logic.action.create.member_create,member_create,ckan.logic.action.create.,"Make an object (e.g. a user, dataset or group) a member of a group. If the object is already a member of the group then the capacity of the
+membership will be updated. You must be authorized to edit the group.",/member_create
+ckan.logic.action.create.group_create,group_create,ckan.logic.action.create.,"Create a new group. You must be authorized to create groups. Plugins may change the parameters of this function depending on the value
+of the type parameter, see the
+IGroupForm plugin interface.",/group_create
+ckan.logic.action.create.organization_create,organization_create,ckan.logic.action.create.,"Create a new organization. You must be authorized to create organizations. Plugins may change the parameters of this function depending on the value
+of the type parameter, see the
+IGroupForm plugin interface.",/organization_create
+ckan.logic.action.create.rating_create,rating_create,ckan.logic.action.create.,Rate a dataset (package). You must provide your API key in the Authorization header.,/rating_create
+ckan.logic.action.create.user_create,user_create,ckan.logic.action.create.,Create a new user. You must be authorized to create users.,/user_create
+ckan.logic.action.create.user_invite,user_invite,ckan.logic.action.create.,Invite a new user. You must be authorized to create group members.,/user_invite
+ckan.logic.action.create.vocabulary_create,vocabulary_create,ckan.logic.action.create.,Create a new tag vocabulary. You must be a sysadmin to create vocabularies.,/vocabulary_create
+ckan.logic.action.create.activity_create,activity_create,ckan.logic.action.create.,Create a new activity stream activity. You must be a sysadmin to create new activities.,/activity_create
+ckan.logic.action.create.tag_create,tag_create,ckan.logic.action.create.,"Create a new vocabulary tag. You must be a sysadmin to create vocabulary tags. You can only use this function to create tags that belong to a vocabulary,
+not to create free tags. (To create a new free tag simply add the tag to
+a package, e.g. using the
+package_update() function.)",/tag_create
+ckan.logic.action.create.follow_user,follow_user,ckan.logic.action.create.,Start following another user. You must provide your API key in the Authorization header.,/follow_user
+ckan.logic.action.create.follow_dataset,follow_dataset,ckan.logic.action.create.,Start following a dataset. You must provide your API key in the Authorization header.,/follow_dataset
+ckan.logic.action.create.group_member_create,group_member_create,ckan.logic.action.create.,Make a user a member of a group. You must be authorized to edit the group.,/group_member_create
+ckan.logic.action.create.organization_member_create,organization_member_create,ckan.logic.action.create.,Make a user a member of an organization. You must be authorized to edit the organization.,/organization_member_create
+ckan.logic.action.create.follow_group,follow_group,ckan.logic.action.create.,Start following a group. You must provide your API key in the Authorization header.,/follow_group
+ckan.logic.action.update.resource_update,resource_update,ckan.logic.action.update.,"Update a resource. To update a resource you must be authorized to update the dataset that the
+resource belongs to. For further parameters see
+resource_create().",/resource_update
+ckan.logic.action.update.resource_view_update,resource_view_update,ckan.logic.action.update.,"Update a resource view. To update a resource_view you must be authorized to update the resource
+that the resource_view belongs to. For further parameters see resource_view_create().",/resource_view_update
+ckan.logic.action.update.resource_view_reorder,resource_view_reorder,ckan.logic.action.update.,Reorder resource views.,/resource_view_reorder
+ckan.logic.action.update.package_update,package_update,ckan.logic.action.update.,"Update a dataset (package). You must be authorized to edit the dataset and the groups that it belongs
+to. It is recommended to call
+ckan.logic.action.get.package_show(), make the desired changes to
+the result, and then call package_update() with it. Plugins may change the parameters of this function depending on the value
+of the dataset’s type attribute, see the
+IDatasetForm plugin interface. For further parameters see
+package_create().",/package_update
+ckan.logic.action.update.package_resource_reorder,package_resource_reorder,ckan.logic.action.update.,"Reorder resources against datasets.  If only partial resource ids are
+supplied then these are assumed to be first and the other resources will
+stay in their original order",/package_resource_reorder
+ckan.logic.action.update.package_relationship_update,package_relationship_update,ckan.logic.action.update.,"Update a relationship between two datasets (packages). The subject, object and type parameters are required to identify the
+relationship. Only the comment can be updated. You must be authorized to edit both the subject and the object datasets.",/package_relationship_update
+ckan.logic.action.update.group_update,group_update,ckan.logic.action.update.,"Update a group. You must be authorized to edit the group. Plugins may change the parameters of this function depending on the value
+of the group’s type attribute, see the
+IGroupForm plugin interface. For further parameters see
+group_create().",/group_update
+ckan.logic.action.update.organization_update,organization_update,ckan.logic.action.update.,"Update a organization. You must be authorized to edit the organization. For further parameters see
+organization_create().",/organization_update
+ckan.logic.action.update.user_update,user_update,ckan.logic.action.update.,"Update a user account. Normal users can only update their own user accounts. Sysadmins can update
+any user account. For further parameters see
+user_create().",/user_update
+ckan.logic.action.update.user_generate_apikey,user_generate_apikey,ckan.logic.action.update.,Cycle a user’s API key,/user_generate_apikey
+ckan.logic.action.update.task_status_update,task_status_update,ckan.logic.action.update.,Update a task status.,/task_status_update
+ckan.logic.action.update.task_status_update_many,task_status_update_many,ckan.logic.action.update.,Update many task statuses at once.,/task_status_update_many
+ckan.logic.action.update.term_translation_update,term_translation_update,ckan.logic.action.update.,Create or update a term translation. You must be a sysadmin to create or update term translations.,/term_translation_update
+ckan.logic.action.update.term_translation_update_many,term_translation_update_many,ckan.logic.action.update.,Create or update many term translations at once.,/term_translation_update_many
+ckan.logic.action.update.vocabulary_update,vocabulary_update,ckan.logic.action.update.,"Update a tag vocabulary. You must be a sysadmin to update vocabularies. For further parameters see
+vocabulary_create().",/vocabulary_update
+ckan.logic.action.update.dashboard_mark_activities_old,dashboard_mark_activities_old,ckan.logic.action.update.,"Mark all the authorized user’s new dashboard activities as old. This will reset
+dashboard_new_activities_count() to 0.",/dashboard_mark_activities_old
+ckan.logic.action.update.send_email_notifications,send_email_notifications,ckan.logic.action.update.,"Send any pending activity stream notification emails to users. You must provide a sysadmin’s API key in the Authorization header of the
+request, or call this action from the command-line via a paster post ...
+command.",/send_email_notifications
+ckan.logic.action.update.package_owner_org_update,package_owner_org_update,ckan.logic.action.update.,Update the owning organization of a dataset,/package_owner_org_update
+ckan.logic.action.update.bulk_update_private,bulk_update_private,ckan.logic.action.update.,Make a list of datasets private,/bulk_update_private
+ckan.logic.action.update.bulk_update_public,bulk_update_public,ckan.logic.action.update.,Make a list of datasets public,/bulk_update_public
+ckan.logic.action.update.bulk_update_delete,bulk_update_delete,ckan.logic.action.update.,Make a list of datasets deleted,/bulk_update_delete
+ckan.logic.action.update.config_option_update,config_option_update,ckan.logic.action.update.,"Allows to modify some CKAN runtime-editable config options It takes arbitrary key, value pairs and checks the keys against the
+config options update schema. If some of the provided keys are not present
+in the schema a ValidationError is raised.
+The values are then validated against the schema, and if validation is
+passed, for each key, value config option: The following lists a key parameter, but this should be replaced by
+whichever config options want to be updated, eg:",/config_option_update
+ckan.logic.action.patch.package_patch,package_patch,ckan.logic.action.patch.,"Patch a dataset (package). The difference between the update and patch methods is that the patch will
+perform an update of the provided parameters, while leaving all other
+parameters unchanged, whereas the update methods deletes all parameters
+not explicitly provided in the data_dict You must be authorized to edit the dataset and the groups that it belongs
+to.",/package_patch
+ckan.logic.action.patch.resource_patch,resource_patch,ckan.logic.action.patch.,"Patch a resource The difference between the update and patch methods is that the patch will
+perform an update of the provided parameters, while leaving all other
+parameters unchanged, whereas the update methods deletes all parameters
+not explicitly provided in the data_dict",/resource_patch
+ckan.logic.action.patch.group_patch,group_patch,ckan.logic.action.patch.,"Patch a group The difference between the update and patch methods is that the patch will
+perform an update of the provided parameters, while leaving all other
+parameters unchanged, whereas the update methods deletes all parameters
+not explicitly provided in the data_dict",/group_patch
+ckan.logic.action.patch.organization_patch,organization_patch,ckan.logic.action.patch.,"Patch an organization The difference between the update and patch methods is that the patch will
+perform an update of the provided parameters, while leaving all other
+parameters unchanged, whereas the update methods deletes all parameters
+not explicitly provided in the data_dict",/organization_patch
+ckan.logic.action.delete.user_delete,user_delete,ckan.logic.action.delete.,Delete a user. Only sysadmins can delete users.,/user_delete
+ckan.logic.action.delete.package_delete,package_delete,ckan.logic.action.delete.,"Delete a dataset (package). This makes the dataset disappear from all web & API views, apart from the
+trash. You must be authorized to delete the dataset.",/package_delete
+ckan.logic.action.delete.dataset_purge,dataset_purge,ckan.logic.action.delete.,"Purge a dataset. Purging a database completely removes the dataset from the CKAN database,
+whereas deleting a dataset simply marks the dataset as deleted (it will no
+longer show up in the front-end, but is still in the db). You must be authorized to purge the dataset.",/dataset_purge
+ckan.logic.action.delete.resource_delete,resource_delete,ckan.logic.action.delete.,Delete a resource from a dataset. You must be a sysadmin or the owner of the resource to delete it.,/resource_delete
+ckan.logic.action.delete.resource_view_delete,resource_view_delete,ckan.logic.action.delete.,Delete a resource_view.,/resource_view_delete
+ckan.logic.action.delete.resource_view_clear,resource_view_clear,ckan.logic.action.delete.,"Delete all resource views, or all of a particular type.",/resource_view_clear
+ckan.logic.action.delete.package_relationship_delete,package_relationship_delete,ckan.logic.action.delete.,"Delete a dataset (package) relationship. You must be authorised to delete dataset relationships, and to edit both
+the subject and the object datasets.",/package_relationship_delete
+ckan.logic.action.delete.member_delete,member_delete,ckan.logic.action.delete.,"Remove an object (e.g. a user, dataset or group) from a group. You must be authorized to edit a group to remove objects from it.",/member_delete
+ckan.logic.action.delete.group_delete,group_delete,ckan.logic.action.delete.,Delete a group. You must be authorized to delete the group.,/group_delete
+ckan.logic.action.delete.organization_delete,organization_delete,ckan.logic.action.delete.,Delete an organization. You must be authorized to delete the organization.,/organization_delete
+ckan.logic.action.delete.group_purge,group_purge,ckan.logic.action.delete.,"Purge a group. Purging a group completely removes the group from the CKAN database,
+whereas deleting a group simply marks the group as deleted (it will no
+longer show up in the frontend, but is still in the db). Datasets in the organization will remain, just not in the purged group. You must be authorized to purge the group.",/group_purge
+ckan.logic.action.delete.organization_purge,organization_purge,ckan.logic.action.delete.,"Purge an organization. Purging an organization completely removes the organization from the CKAN
+database, whereas deleting an organization simply marks the organization as
+deleted (it will no longer show up in the frontend, but is still in the
+db). Datasets owned by the organization will remain, just not in an
+organization any more. You must be authorized to purge the organization.",/organization_purge
+ckan.logic.action.delete.task_status_delete,task_status_delete,ckan.logic.action.delete.,Delete a task status. You must be a sysadmin to delete task statuses.,/task_status_delete
+ckan.logic.action.delete.vocabulary_delete,vocabulary_delete,ckan.logic.action.delete.,Delete a tag vocabulary. You must be a sysadmin to delete vocabularies.,/vocabulary_delete
+ckan.logic.action.delete.tag_delete,tag_delete,ckan.logic.action.delete.,Delete a tag. You must be a sysadmin to delete tags.,/tag_delete
+ckan.logic.action.delete.unfollow_user,unfollow_user,ckan.logic.action.delete.,Stop following a user.,/unfollow_user
+ckan.logic.action.delete.unfollow_dataset,unfollow_dataset,ckan.logic.action.delete.,Stop following a dataset.,/unfollow_dataset
+ckan.logic.action.delete.group_member_delete,group_member_delete,ckan.logic.action.delete.,Remove a user from a group. You must be authorized to edit the group.,/group_member_delete
+ckan.logic.action.delete.organization_member_delete,organization_member_delete,ckan.logic.action.delete.,Remove a user from an organization. You must be authorized to edit the organization.,/organization_member_delete
+ckan.logic.action.delete.unfollow_group,unfollow_group,ckan.logic.action.delete.,Stop following a group.,/unfollow_group
+ckan.logic.action.delete.job_clear,job_clear,ckan.logic.action.delete.,Clear background job queues. Does not affect jobs that are already being processed.,/job_clear
+ckan.logic.action.delete.job_cancel,job_cancel,ckan.logic.action.delete.,Cancel a queued background job. Removes the job from the queue and deletes it.,/job_cancel

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+*********************************************************************************************** 
+Directory.Build.props
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+
+Copyright (c) Ollon, LLC. All rights reserved. 
+***********************************************************************************************
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+
+  <PropertyGroup Label="RestoreSources">
+    <RestoreSources>$(DotNetRestoreSources)</RestoreSources>
+    <RestoreSources>
+      https://api.nuget.org/v3/index.json;
+      https://www.myget.org/F/ollon-buildtools/api/v3/index.json;
+      https://dotnet.myget.org/F/dotnet-core/api/v3/index.json;
+      https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json;
+      https://dotnet.myget.org/F/aspnetcore-tools/api/v3/index.json;
+      https://dotnet.myget.org/F/msbuild/api/v3/index.json;
+      https://dotnet.myget.org/F/roslyn/api/v3/index.json;
+      https://vside.myget.org/F/vssdk/api/v3/index.json;
+      https://vside.myget.org/F/vsmac/api/v3/index.json;
+      https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json;
+      $(RestoreSources)
+    </RestoreSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <DotNetCoreRuntime Include="$(MicrosoftNETCoreApp20PackageVersion)" />
+    <DotNetCoreRuntime Include="$(MicrosoftNETCoreApp21PackageVersion)" />
+    <DotNetCoreRuntime Include="$(MicrosoftNETCoreApp22PackageVersion)" />
+  </ItemGroup>
+
+  <PropertyGroup>
+
+    <SolutionDir>$(MSBuildThisFileDirectory)</SolutionDir>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RepositoryDirectory>$(SolutionDir)</RepositoryDirectory>
+    <RepositoryDirectory Condition="!HasTrailingSlash('$(RepositoryDirectory)')">$(RepositoryDirectory)\</RepositoryDirectory>
+    <OutputPath>$(RepositoryDirectory)bin\$(Configuration)\$(MSBuildProjectName)\</OutputPath>
+    <BaseIntermediateOutputPath>$(RepositoryDirectory)bin\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)\</IntermediateOutputPath>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <RuntimeIdentifiers Condition="'$(RuntimeIdentifiers)'==''">win</RuntimeIdentifiers>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>
+      CS1591;
+      MSB3277;
+      CS0649;
+      IDE0001;
+      IDE0003;
+      IDE0008;
+      CS00067;
+      $(NoWarn)
+    </NoWarn>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(RepositoryDirectory)build\strong name keys\SolutionKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <!--                           -->
+  <!--   TextTemplating -->
+  <!--                           -->
+
+  <PropertyGroup>
+    <TransformOnBuild>true</TransformOnBuild>
+    <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
+    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- All projects in this repository target the same framework by default -->
+    <TargetFramework>net472</TargetFramework>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+    <VSSDKTargetPlatformRegRootSuffix Condition="'$(RootSuffix)' != ''">$(RootSuffix)</VSSDKTargetPlatformRegRootSuffix>
+    <VSSDKTargetPlatformRegRootSuffix Condition="'$(VSSDKTargetPlatformRegRootSuffix)' == ''">Exp</VSSDKTargetPlatformRegRootSuffix>
+
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ForceGenerationOfBindingRedirects>true</ForceGenerationOfBindingRedirects>
+  </PropertyGroup>
+
+  <!--                           -->
+  <!--   Developer Environment   -->
+  <!--                           -->
+  <Choose>
+    <When Condition="'$(DevEnvDir)' == '*Undefined*' OR '$(DevEnvDir)' == ''">
+      <PropertyGroup>
+        <VSInstall>$([MSBuild]::GetRegistryValue(`HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\SxS\VS7`, `$(VisualStudioVersion)`))\</VSInstall>
+        <DevEnvDir>$(VSInstall)Common7\IDE\</DevEnvDir>
+        <MSBuildDir>$(VSInstall)MSBuild\$(VisualStudioVersion)\Bin\</MSBuildDir>
+        <VsSDKInstall>$(VSInstall)VSSDK\</VsSDKInstall>
+        <Assemblies40>$(VsSDKInstall)VSSDK\VisualStudioIntegration\Common\Assemblies\v4.0\</Assemblies40>
+        <PropertyPageBase>$(VsSDKInstall)VisualStudioIntegration\Common\Source\CSharp\PropertyPageBase\</PropertyPageBase>
+      </PropertyGroup>
+    </When>
+  </Choose>
+
+
+</Project>

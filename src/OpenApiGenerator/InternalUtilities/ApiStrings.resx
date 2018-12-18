@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationJsonMediaType" xml:space="preserve">
+    <value>application/json</value>
+  </data>
+  <data name="ContainerSchemaDescriptionFormat" xml:space="preserve">
+    <value>This is the container for a collection of {0} objects. There must be at least one {0}.</value>
+  </data>
+  <data name="DataSetSchemaDescription" xml:space="preserve">
+    <value>The container for a data set.</value>
+  </data>
+  <data name="DataSetsManagerTagDescription" xml:space="preserve">
+    <value>The set of service operations that manage access to data sets. This interface manages data set descriptions only (i.e., it does not support management of tables, columns, etc.).</value>
+  </data>
+  <data name="DataSetsManagerTagName" xml:space="preserve">
+    <value>DataSetsManager</value>
+  </data>
+  <data name="DataSetsSchemaDescription" xml:space="preserve">
+    <value>The container for a collection of data sets.</value>
+  </data>
+  <data name="DeleteOperationDescription" xml:space="preserve">
+    <value>This is a request to the Service Provider to delete the specified {0} from the database.</value>
+  </data>
+  <data name="DeleteOperationIdFormat" xml:space="preserve">
+    <value>Delete{0}</value>
+  </data>
+  <data name="DeleteOperationSummary" xml:space="preserve">
+    <value>The REST drop request message for the {0}() APIcall.</value>
+  </data>
+  <data name="Document_Info_Contact_Email" xml:space="preserve">
+    <value>bmarshall@sped.mobi</value>
+  </data>
+  <data name="Document_Info_Contact_Name" xml:space="preserve">
+    <value>Brad R. Marshall</value>
+  </data>
+  <data name="Document_Info_Contact_Url" xml:space="preserve">
+    <value>http://sped.mobi</value>
+  </data>
+  <data name="Document_Info_Description" xml:space="preserve">
+    <value>Open Api 3.0 Specification for Online Data Sets</value>
+  </data>
+  <data name="Document_Info_License_Name" xml:space="preserve">
+    <value>MIT License</value>
+  </data>
+  <data name="Document_Info_License_Url" xml:space="preserve">
+    <value>http://sped.mobi/license.html</value>
+  </data>
+  <data name="Document_Info_TermsOfService" xml:space="preserve">
+    <value>http://sped.mobi/terms.html</value>
+  </data>
+  <data name="Document_Info_Title" xml:space="preserve">
+    <value>Data Set API</value>
+  </data>
+  <data name="Document_Info_Version" xml:space="preserve">
+    <value>1.0</value>
+  </data>
+  <data name="Document_Servers_Server_BasePathVariable_Description" xml:space="preserve">
+    <value>Represents the base path for the api.</value>
+  </data>
+  <data name="Document_Servers_Server_Description" xml:space="preserve">
+    <value>Amazon Api Gateway Production Server</value>
+  </data>
+  <data name="Document_Servers_Server_SchemeVariable_Description" xml:space="preserve">
+    <value>The Data Set API is accessible via https and http.</value>
+  </data>
+  <data name="Document_Servers_Server_Url" xml:space="preserve">
+    <value>{scheme}://datasetws.com/{basePath}</value>
+  </data>
+  <data name="GetOperationDescriptionFormat_1" xml:space="preserve">
+    <value>This is a request to the Service Provider to provide the specified {0}.</value>
+  </data>
+  <data name="GetOperationDescriptionFormat_2" xml:space="preserve">
+    <value>This is a request to the Service Provider to provide all of the {0} objects in the database.</value>
+  </data>
+  <data name="GetOperationIdFormat" xml:space="preserve">
+    <value>Get{0}</value>
+  </data>
+  <data name="GetOperationSummaryFormat" xml:space="preserve">
+    <value>The REST read request message for the {0}() API call.</value>
+  </data>
+  <data name="PatchOperationDescription" xml:space="preserve">
+    <value>This is a request to the Service Provider to update the specified {0} in the database.</value>
+  </data>
+  <data name="PatchOperationIdFormat" xml:space="preserve">
+    <value>Patch{0}</value>
+  </data>
+  <data name="PatchOperationSummary" xml:space="preserve">
+    <value>The RESTupdate request message for the {0}() APIcall.</value>
+  </data>
+  <data name="PostOperationDescription" xml:space="preserve">
+    <value>This is a request to the Service Provider to add the specified {0} to the database.</value>
+  </data>
+  <data name="PostOperationIdFormat" xml:space="preserve">
+    <value>Post{0}</value>
+  </data>
+  <data name="PostOperationSummary" xml:space="preserve">
+    <value>The REST add request message for the {0}() API call.</value>
+  </data>
+  <data name="PutOperationDescription" xml:space="preserve">
+    <value>This is a request to the Service Provider to update the specified {0}.</value>
+  </data>
+  <data name="PutOperationSummary" xml:space="preserve">
+    <value>The REST put request message for the {0}() API call.</value>
+  </data>
+  <data name="Response200DescriptionFormat_0" xml:space="preserve">
+    <value>This is the response when the request has been completed successfully. It is the {0} from the service provider.</value>
+  </data>
+  <data name="Response200Key" xml:space="preserve">
+    <value>200</value>
+  </data>
+  <data name="Response400DescriptionFormat" xml:space="preserve">
+    <value>An invalid selection field was supplied and data filtering on the selection criteria was not possible i.e. 'invalid_selection_field'. This is accompanied by the 'codeMajor/severity' values of 'failure/error'.</value>
+  </data>
+  <data name="Response400Key" xml:space="preserve">
+    <value>400</value>
+  </data>
+  <data name="Response401DescriptionFormat" xml:space="preserve">
+    <value>The request was not correctly authorised i.e. 'unauthorisedrequest'. This would be accompanied by the 'codeMajor/severity' values of 'failure/error'.</value>
+  </data>
+  <data name="Response401Key" xml:space="preserve">
+    <value>401</value>
+  </data>
+  <data name="Response403DescriptionFormat" xml:space="preserve">
+    <value>This is used to indicate that the server can be reached and process the request but refuses to take any further action i.e. 'forbidden'. This would be accompanied by the 'codeMajor/severity' values of 'failure/error'.</value>
+  </data>
+  <data name="Response403Key" xml:space="preserve">
+    <value>403</value>
+  </data>
+  <data name="Response404DescriptionFormat" xml:space="preserve">
+    <value>Either the supplied id is unknown in the Service Provider and so the object could not be changed or an invalid GUID has been supplied. This would be accompanied by the 'codeMajor/severity' values of 'failure/error'. The statement 'Unknown Object' of 'Invalid GUID' should also be presented.</value>
+  </data>
+  <data name="Response404Key" xml:space="preserve">
+    <value>404</value>
+  </data>
+  <data name="Response429DescriptionFormat" xml:space="preserve">
+    <value>The server is receiving too many requests i.e. 'server_busy'. Retry at a later time. This would be accompanied by the 'codeMajor/severity' values of 'failure/error'.</value>
+  </data>
+  <data name="Response429Key" xml:space="preserve">
+    <value>429</value>
+  </data>
+  <data name="Response500DescriptionFormat" xml:space="preserve">
+    <value>This code should be used only if there is catastrophic error and there is not a more appropriate code i.e. 'internal_server_error'. This would be accompanied by the 'codeMajor/severity' values of 'failure/error'.</value>
+  </data>
+  <data name="Response500Key" xml:space="preserve">
+    <value>500</value>
+  </data>
+  <data name="ResponseDefaultDescriptionFormat" xml:space="preserve">
+    <value>This is the response data payload to be supplied when the HTTP code is NOT explicitly defined. This would be accompanied by the 'codeMajor/severity' values of 'failure/error' and the appropriate 'codeMinor' value. The associated HTTP code will also be supplied.</value>
+  </data>
+  <data name="ResponseDefaultKey" xml:space="preserve">
+    <value>default</value>
+  </data>
+  <data name="SchemaReferencePathFormat" xml:space="preserve">
+    <value>#/components/schemas/{0}</value>
+  </data>
+  <data name="UUIDParameterDescription" xml:space="preserve">
+    <value>Universally unique identifier.</value>
+  </data>
+  <data name="UUIDParameterName" xml:space="preserve">
+    <value>uuid</value>
+  </data>
+</root>
